@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -13,8 +14,8 @@ public class Interactable : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            transform.localPosition = Vector3.Lerp(transform.position, Vector3.zero, Time.fixedDeltaTime);
-            transform.rotation = Quaternion.identity;
+            //transform.localPosition = Vector3.Lerp(transform.position, Vector3.zero, Time.fixedDeltaTime);
+            //transform.rotation = Quaternion.identity;
         }
     }
 
@@ -25,10 +26,12 @@ public class Interactable : MonoBehaviour
         if (rb != null)
         {
             rb.useGravity = false;
-            //rb.isKinematic = true;
+            rb.isKinematic = true;
         }
 
         transform.parent = holdPoint;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     public void GetDropped()
@@ -38,9 +41,9 @@ public class Interactable : MonoBehaviour
         if (rb != null)
         {
             rb.useGravity = true;
-            //rb.isKinematic = false;
+            rb.isKinematic = false;
         }
-        
+
         transform.parent = null;
     }
 

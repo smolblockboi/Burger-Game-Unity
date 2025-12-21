@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
+    public Rigidbody owner_rb;
+
     public Camera cam;
     public float maxDistance = 100f;
 
