@@ -1,14 +1,29 @@
+using System;
 using UnityEngine;
 
 public class InteractableIngredientObject : MonoBehaviour, IInteractable
 {
     private Transform targetTransform;
+    private Rigidbody rb;
 
+    private float carryForce = 2f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         if (targetTransform != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, Time.deltaTime);
+            Vector3 distanceFromTarget = targetTransform.position - transform.position;
+
+            Debug.Log(distanceFromTarget.sqrMagnitude);
+            if(distanceFromTarget.sqrMagnitude > 0.5f)
+            {
+                rb.AddForce((distanceFromTarget.normalized * distanceFromTarget.sqrMagnitude), ForceMode.Acceleration);
+            }
+            //transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, Time.deltaTime);
             transform.rotation = Quaternion.identity;
         }
     }
@@ -20,7 +35,7 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
         if (rb != null)
         {
             rb.useGravity = false;
-            rb.isKinematic = true;
+            //rb.isKinematic = true;
         }
 
         targetTransform = holdPoint;
@@ -35,7 +50,7 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
         if (rb != null)
         {
             rb.useGravity = true;
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
         }
 
         targetTransform = null;
