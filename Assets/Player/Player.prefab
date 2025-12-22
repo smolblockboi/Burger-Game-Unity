@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6262145073907047214}
   - component: {fileID: 2328037957275978974}
   - component: {fileID: 7015499640586535086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 4049062721199780673}
   - component: {fileID: 3063390722104069924}
   - component: {fileID: 1428443129998305600}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 1418948293316406783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,6 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab89de7d9684a3648b9e788dbbe3cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  rayGrabMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rayInteractMask:
+    serializedVersion: 2
+    m_Bits: 128
   owner_rb: {fileID: 4838341696373251971}
   cam: {fileID: 6262145073907047214}
   maxDistance: 100
@@ -257,9 +263,9 @@ GameObject:
   - component: {fileID: 5300669761929264265}
   - component: {fileID: 8053789800669498677}
   - component: {fileID: 4838341696373251971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4445385955031459661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

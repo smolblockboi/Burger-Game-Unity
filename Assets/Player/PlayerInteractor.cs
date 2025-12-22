@@ -3,13 +3,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
+
+    public LayerMask rayGrabMask = LayerMask.GetMask();
+    public LayerMask rayInteractMask = LayerMask.GetMask();
+
     public Rigidbody owner_rb;
 
     public Camera cam;
     public float maxDistance = 100f;
 
     public Transform holdPoint;
-    private Interactable heldItem;
+    private Collider heldItem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,26 +41,24 @@ public class PlayerInteractor : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, maxDistance))
                 {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                     if (interactable != null)
                     {
-                        interactable.GetGrabbed(holdPoint);
-                        heldItem = interactable;
-                        Debug.Log("Picked up " + heldItem.name);
-                    } else
-                    {
-                        Debug.Log("Nothing here");
+                        interactable.Grabbed(holdPoint);
+                        heldItem = hit.collider;
                     }
-
-                }
+                } 
             }
         } else
         {
             if (context.canceled)
             {
-                Debug.Log("Dropped " + heldItem.name);
-                heldItem.GetDropped();
-                heldItem = null;
+                if (heldItem != null)
+                {
+                    IInteractable interactable = heldItem.GetComponent<IInteractable>();
+                    interactable.Dropped();
+                    heldItem = null;
+                }
             }
         }
     }

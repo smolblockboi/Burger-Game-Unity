@@ -1,0 +1,25 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : MonoBehaviour, IInteractable
+{
+	public void Grabbed(Transform holdPoint = null)
+	{
+	#NOTRIM#
+	}
+
+	public void Dropped()
+	{
+	#NOTRIM#
+	}
+
+	public void Punched()
+	{
+	#NOTRIM#
+	}
+
+	public void Chopped()
+	{
+	#NOTRIM#
+	}
+
+}
