@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f264e36874f9d214893d9ccea6bd4903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientObject
+  chopsInto: {fileID: 8841154849822115723, guid: 61bb08d7f5f43654caeda4132ea6eb9e, type: 3}
 --- !u!54 &8794299519035102318
 Rigidbody:
   m_ObjectHideFlags: 0

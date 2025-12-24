@@ -6,7 +6,7 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
     private Transform targetTransform;
     private Rigidbody rb;
 
-    private float carryForce = 2f;
+    public GameObject chopsInto;
 
     void Start()
     {
@@ -65,6 +65,14 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
 
     public void Chopped()
     {
-        Debug.Log("Chopped " + name);
+        if (chopsInto)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Instantiate(chopsInto, transform.position, Quaternion.identity);
+            }
+            Debug.Log("Chopped " + name);
+            Destroy(gameObject);
+        }
     }
 }

@@ -7,8 +7,6 @@ public class PlayerInteractor : MonoBehaviour
     public LayerMask rayGrabMask = LayerMask.GetMask();
     public LayerMask rayInteractMask = LayerMask.GetMask();
 
-    public Rigidbody owner_rb;
-
     public Camera cam;
     public float maxDistance = 100f;
 
@@ -37,8 +35,6 @@ public class PlayerInteractor : MonoBehaviour
                 Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                 RaycastHit hit;
 
-                Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red);
-
                 if (Physics.Raycast(ray, out hit, maxDistance))
                 {
                     IInteractable interactable = hit.collider.GetComponent<IInteractable>();
@@ -58,6 +54,24 @@ public class PlayerInteractor : MonoBehaviour
                     IInteractable interactable = heldItem.GetComponent<IInteractable>();
                     interactable.Dropped();
                     heldItem = null;
+                }
+            }
+        }
+    }
+
+    public void OnAction(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, maxDistance))
+            {
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                if (interactable != null)
+                {
+                    interactable.Chopped();
                 }
             }
         }

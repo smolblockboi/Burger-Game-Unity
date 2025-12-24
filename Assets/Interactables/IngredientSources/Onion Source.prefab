@@ -95,9 +95,6 @@ PrefabInstance:
       addedObject: {fileID: 3173127364606763105}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4448876d42d7a0045baa6826e892c95b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7173372338773182113}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4448876d42d7a0045baa6826e892c95b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3128001622803070915}
   m_SourcePrefab: {fileID: 100100000, guid: 4448876d42d7a0045baa6826e892c95b, type: 3}
 --- !u!1 &5997601769707398137 stripped
@@ -119,33 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientSource
   spawnTransform: {fileID: 1506037757884025764}
   ingredient: {fileID: 426911885376100852, guid: c7cbfdf9e1fddc948bf4f3ca0d2690fe, type: 3}
---- !u!54 &7173372338773182113
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5997601769707398137}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &3128001622803070915
 BoxCollider:
   m_ObjectHideFlags: 0
