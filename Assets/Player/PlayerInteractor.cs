@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerInteractor : MonoBehaviour
 {
 
+    public CharacterController characterController;
+
     public LayerMask rayGrabMask = LayerMask.GetMask();
     public LayerMask rayInteractMask = LayerMask.GetMask();
 
@@ -40,7 +42,7 @@ public class PlayerInteractor : MonoBehaviour
                     IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                     if (interactable != null)
                     {
-                        interactable.Grabbed(holdPoint);
+                        interactable.Grabbed(characterController, holdPoint);
                         heldItem = hit.collider;
                     }
                 } 

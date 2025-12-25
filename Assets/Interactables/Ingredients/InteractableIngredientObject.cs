@@ -1,10 +1,13 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableIngredientObject : MonoBehaviour, IInteractable
 {
     private Transform targetTransform;
     private Rigidbody rb;
+
+    private FixedJoint grabJoint;
 
     public GameObject chopsInto;
 
@@ -28,7 +31,7 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
         }
     }
 
-    public void Grabbed(Transform holdPoint)
+    public void Grabbed(CharacterController characterController, Transform holdPoint)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
@@ -38,7 +41,10 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
             //rb.isKinematic = true;
         }
 
-        targetTransform = holdPoint;
+        grabJoint = characterController.gameObject.AddComponent<FixedJoint>();
+        grabJoint.connectedBody = rb;
+
+        //targetTransform = holdPoint;
 
         Debug.Log("Grabbed " + name);
     }
@@ -54,6 +60,8 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
         }
 
         targetTransform = null;
+
+        Destroy(grabJoint);
 
         Debug.Log("Dropped " + name);
     }

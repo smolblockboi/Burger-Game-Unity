@@ -6,7 +6,7 @@ public class InteractableFridgeDoor : MonoBehaviour, IInteractable
     private Vector3 openVector = new Vector3(0f, -75f, 0f);
     public Transform hinge;
 
-    public void Grabbed(Transform holdPoint = null)
+    public void Grabbed(CharacterController characterController, Transform holdPoint = null)
     {
         if (isOpened)
         {

@@ -3597,6 +3597,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8e190da6d17f89489ceb6b1a6d77d0a, type: 3}
   m_PrefabInstance: {fileID: 1623358294}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &1628891862 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 225262732816965239, guid: e3da192ddcaac4943817017d55e18903, type: 3}
+  m_PrefabInstance: {fileID: 7899099595148344791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1643348405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5393,6 +5398,10 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8563903815149393245, guid: e3da192ddcaac4943817017d55e18903, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 1628891862}
     - target: {fileID: 8577525948501697620, guid: e3da192ddcaac4943817017d55e18903, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.39665
