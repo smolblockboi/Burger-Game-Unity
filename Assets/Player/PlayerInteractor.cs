@@ -3,16 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
-
-    public CharacterController characterController;
-
-    public LayerMask rayGrabMask = LayerMask.GetMask();
-    public LayerMask rayInteractMask = LayerMask.GetMask();
+    public Transform holdPoint;
 
     public Camera cam;
     public float maxDistance = 100f;
 
-    public Transform holdPoint;
     private Collider heldItem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,7 +37,7 @@ public class PlayerInteractor : MonoBehaviour
                     IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                     if (interactable != null)
                     {
-                        interactable.Grabbed(characterController, holdPoint);
+                        interactable.Grabbed(holdPoint);
                         heldItem = hit.collider;
                     }
                 } 

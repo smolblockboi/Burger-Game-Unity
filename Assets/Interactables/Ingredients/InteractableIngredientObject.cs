@@ -4,47 +4,35 @@ using UnityEngine;
 
 public class InteractableIngredientObject : MonoBehaviour, IInteractable
 {
-    private Transform targetTransform;
-    private Rigidbody rb;
-
-    private FixedJoint grabJoint;
+    private SpringJoint holdJoint;
 
     public GameObject chopsInto;
 
-    void Start()
+    private void FixedUpdate()
     {
-        rb = GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-        if (targetTransform != null)
+        if (holdJoint)
         {
-            Vector3 distanceFromTarget = targetTransform.position - transform.position;
-
-            Debug.Log(distanceFromTarget.sqrMagnitude);
-            if(distanceFromTarget.sqrMagnitude > 0.5f)
-            {
-                rb.AddForce((distanceFromTarget.normalized * distanceFromTarget.sqrMagnitude), ForceMode.Acceleration);
-            }
-            //transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, Time.deltaTime);
-            transform.rotation = Quaternion.identity;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 
-    public void Grabbed(CharacterController characterController, Transform holdPoint)
+    public void Grabbed(Transform holdPoint)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
         if (rb != null)
         {
+            holdJoint = gameObject.AddComponent<SpringJoint>();
+            holdJoint.connectedBody = holdPoint.gameObject.GetComponent<Rigidbody>();
+            holdJoint.spring = 20f;
+            //holdJoint.damper = 1.5f;
+
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            rb.linearDamping = 5f;
+
             rb.useGravity = false;
-            //rb.isKinematic = true;
         }
-
-        grabJoint = characterController.gameObject.AddComponent<FixedJoint>();
-        grabJoint.connectedBody = rb;
-
-        //targetTransform = holdPoint;
 
         Debug.Log("Grabbed " + name);
     }
@@ -55,13 +43,13 @@ public class InteractableIngredientObject : MonoBehaviour, IInteractable
 
         if (rb != null)
         {
+            Destroy(holdJoint);
+
+            rb.constraints = RigidbodyConstraints.None;
+            rb.linearDamping = 0f;
+
             rb.useGravity = true;
-            //rb.isKinematic = false;
         }
-
-        targetTransform = null;
-
-        Destroy(grabJoint);
 
         Debug.Log("Dropped " + name);
     }

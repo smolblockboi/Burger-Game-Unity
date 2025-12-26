@@ -2340,6 +2340,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8e190da6d17f89489ceb6b1a6d77d0a, type: 3}
   m_PrefabInstance: {fileID: 951671108}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &972817982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 103932656337055293, guid: e3da192ddcaac4943817017d55e18903, type: 3}
+  m_PrefabInstance: {fileID: 7899099595148344791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!145 &972817985
+SpringJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972817982}
+  serializedVersion: 4
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_Spring: 10
+  m_Damper: 0.2
+  m_MinDistance: 0
+  m_MaxDistance: 0
+  m_Tolerance: 0.025
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1001 &997387391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5445,7 +5474,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 103932656337055293, guid: e3da192ddcaac4943817017d55e18903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 972817985}
   m_SourcePrefab: {fileID: 100100000, guid: e3da192ddcaac4943817017d55e18903, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
