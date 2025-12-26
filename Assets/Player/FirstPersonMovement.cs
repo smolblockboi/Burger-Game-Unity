@@ -17,7 +17,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     private bool isGrounded;
 
-    void Update()
+    void FixedUpdate()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayerMask);
 
@@ -31,11 +31,11 @@ public class FirstPersonMovement : MonoBehaviour
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
-        characterController.Move(move * speed * Time.deltaTime);
+        characterController.Move(move * speed * Time.fixedDeltaTime);
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.fixedDeltaTime;
 
-        characterController.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.fixedDeltaTime);
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -3,11 +3,14 @@ using UnityEngine;
 public class InteractableIngredientSource : MonoBehaviour, IInteractable
 {
 	public Transform spawnTransform;
-	public GameObject ingredient;
+	public GameObject[] ingredients;
 
 	public void Grabbed(Transform holdPoint)
 	{
-		Instantiate(ingredient, spawnTransform.position, spawnTransform.rotation);
+		for(int i = 0; i < ingredients.Length; i++)
+		{
+			Instantiate(ingredients[i], spawnTransform.position, spawnTransform.rotation);
+		}
     }
 
 	public void Dropped()
