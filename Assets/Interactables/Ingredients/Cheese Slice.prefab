@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f264e36874f9d214893d9ccea6bd4903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientObject
+  itemData: {fileID: 0}
   chopsInto: {fileID: 0}
 --- !u!54 &1991221479546968400
 Rigidbody:
@@ -109,7 +110,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &5778359568860014371
 BoxCollider:

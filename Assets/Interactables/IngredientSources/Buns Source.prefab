@@ -41,15 +41,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1149607
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000018215893
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.9789367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalRotation.y
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f702d790f37e689438a6bd1ae379f818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -114,8 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ca82078ac690e41b982be720d49dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientSource
+  itemPrefab: {fileID: -3235496634641203564, guid: 7a1eaf51ca6bfc047b8ff8bd240d6ab6, type: 3}
+  ingredientDatas: []
   spawnTransform: {fileID: 4498786073127996311}
-  ingredient: {fileID: 106160922935425715, guid: 748796febf928424db049d30676b8b18, type: 3}
 --- !u!65 &8687026163038961051
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class InteractableIngredientSource : MonoBehaviour, IInteractable
 {
+	public InteractableIngredientObject itemPrefab;
+	public ItemData[] ingredientDatas;
+
 	public Transform spawnTransform;
-	public GameObject[] ingredients;
 
 	public void Grabbed(Transform holdPoint)
 	{
-		for(int i = 0; i < ingredients.Length; i++)
+		for(int i = 0; i < ingredientDatas.Length; i++)
 		{
-			Instantiate(ingredients[i], spawnTransform.position, spawnTransform.rotation);
+			InteractableIngredientObject itemInstance = Instantiate(itemPrefab, spawnTransform.position, spawnTransform.rotation);
+			itemInstance.itemData = ingredientDatas[i];
 		}
     }
 

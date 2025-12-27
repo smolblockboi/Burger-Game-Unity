@@ -1,73 +1,51 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractableIngredientObject : MonoBehaviour, IInteractable
+public class InteractableIngredientObject : InteractableObject
 {
-    private SpringJoint holdJoint;
+    public InteractableIngredientObject itemPrefab;
 
-    public GameObject chopsInto;
+    public ItemData itemData;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        if (holdJoint)
-        {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
+        ChangeData(itemData);
     }
 
-    public void Grabbed(Transform holdPoint)
+    public void ChangeData(ItemData newItemData)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        itemData = newItemData;
 
-        if (rb != null)
-        {
-            holdJoint = gameObject.AddComponent<SpringJoint>();
-            holdJoint.connectedBody = holdPoint.gameObject.GetComponent<Rigidbody>();
-            holdJoint.spring = 20f;
-            //holdJoint.damper = 1.5f;
+        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        meshFilter.sharedMesh = itemData.itemMesh;
 
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            rb.linearDamping = 5f;
-
-            rb.useGravity = false;
-        }
-
-        Debug.Log("Grabbed " + name);
+        MeshCollider collider = GetComponent<MeshCollider>();
+        collider.sharedMesh = itemData.itemMesh;
     }
 
-    public void Dropped()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-
-        if (rb != null)
-        {
-            Destroy(holdJoint);
-
-            rb.constraints = RigidbodyConstraints.None;
-            rb.linearDamping = 0f;
-
-            rb.useGravity = true;
-        }
-
-        Debug.Log("Dropped " + name);
-    }
-
-    public void Punched()
+    public override void Punched()
     {
         Debug.Log("Punched " + name);
+        
+        if (itemData.punchesInto != null)
+        {
+            Debug.Log("Punched into " + itemData.chopsInto.itemName);
+        }
     }
 
-    public void Chopped()
+    public override void Chopped()
     {
-        if (chopsInto)
+        if (itemData.chopsInto != null)
         {
+            Debug.Log("Chopped " + name);
+
             for (int i = 0; i < 2; i++)
             {
-                Instantiate(chopsInto, transform.position, Quaternion.identity);
+                InteractableIngredientObject itemInstance = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+                itemInstance.itemData = itemData.chopsInto;
             }
-            Debug.Log("Chopped " + name);
+            
+            Debug.Log("Chopped into " + itemData.chopsInto.itemName);
+
             Destroy(gameObject);
         }
     }
