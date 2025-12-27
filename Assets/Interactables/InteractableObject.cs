@@ -4,9 +4,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
 {
     private SpringJoint grabJoint;
 
-    public float currentCookTime = 0f;
-    public float targetCookTime = 3f;
-
     public virtual void Grabbed(Transform holdPoint)
     {
         Rigidbody rb = GetComponent<Rigidbody>();

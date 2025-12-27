@@ -6,9 +6,6 @@ public class CookingPan : MonoBehaviour
 {
     public Transform panRoot;
 
-    private bool justCooked;
-    private float cooldown = 0.5f;
-
     private InteractableIngredientObject currentlyCooking;
 
     private void Update()
@@ -28,12 +25,6 @@ public class CookingPan : MonoBehaviour
             ingredient.Dropped();
 
             currentlyCooking = ingredient;
-
-            if (!justCooked)
-            {
-                CookItem(ingredient);
-            }
-
         }
     }
 
@@ -50,38 +41,5 @@ public class CookingPan : MonoBehaviour
 
 
         }
-    }
-
-    private void CookItem(InteractableIngredientObject itemObject)
-    {
-        Debug.Log("Started cooking " + itemObject.itemData.itemName);
-
-        StartCoroutine(CookTimer(3.0f, itemObject));
-    }
-
-    IEnumerator CookTimer(float duration, InteractableIngredientObject itemObject)
-    {
-        yield return new WaitForSeconds(duration);
-
-        StartCooldown();
-
-        if (itemObject.itemData.burnsInto != null)
-        {
-            itemObject.ChangeData(itemObject.itemData.burnsInto);
-        }
-        else if (itemObject.itemData.cooksInto != null)
-        {
-            itemObject.ChangeData(itemObject.itemData.cooksInto);
-        }
-
-
-    }
-
-    private void StartCooldown()
-    {
-        cooldown = 0.5f;
-        justCooked = true;
-
-        Debug.Log("Cooldown started");
     }
 }

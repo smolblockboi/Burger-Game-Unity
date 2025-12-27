@@ -6,9 +6,30 @@ public class InteractableIngredientObject : InteractableObject
 
     public ItemData itemData;
 
+    public float currentCookTime = 0f;
+    public float targetCookTime = 3f;
+
     private void Start()
     {
         ChangeData(itemData);
+    }
+
+    private void Update()
+    {
+        if (currentCookTime >= targetCookTime)
+        {
+            currentCookTime = 0f;
+
+            if (itemData.burnsInto != null)
+            {
+                ChangeData(itemData.burnsInto);
+            }
+            else if (itemData.cooksInto != null)
+            {
+                ChangeData(itemData.cooksInto);
+            }
+
+        }
     }
 
     public void ChangeData(ItemData newItemData)
