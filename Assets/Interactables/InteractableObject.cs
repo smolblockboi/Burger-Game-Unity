@@ -4,8 +4,35 @@ public class InteractableObject : MonoBehaviour, IInteractable
 {
     private SpringJoint grabJoint;
 
+    private Renderer objectRenderer;
+    [HideInInspector] public Material outline;
+    private float outlineSize = 0.05f;
+
     private bool _isGrabbed; // internal
     public bool IsGrabbed { get { return _isGrabbed; } } // Read-only
+
+    public virtual void Start()
+    {
+        objectRenderer = GetComponent<Renderer>();
+
+        if (objectRenderer != null)
+        {
+            if (objectRenderer.materials.Length > 1)
+            {
+                outline = objectRenderer.materials[1];
+                HideOutline();
+            }
+        }
+    }
+    public void showOutline()
+    {
+        outline.SetFloat("_Outline_Thickness", outlineSize);
+    }
+
+    public void HideOutline()
+    {
+        outline.SetFloat("_Outline_Thickness", 0f);
+    }
 
     public virtual void Grabbed(Transform holdPoint)
     {

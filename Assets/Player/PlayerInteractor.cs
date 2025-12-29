@@ -12,6 +12,27 @@ public class PlayerInteractor : MonoBehaviour
     private Collider heldItem;
     private InteractorAction currentAction = InteractorAction.Punch;
 
+    private InteractableObject currentInteractable;
+
+    private void Update()
+    {
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, maxDistance))
+        {
+            if (hit.collider.GetComponent<InteractableObject>())
+            {
+                InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
+
+                if (interactable != null)
+                {
+                    currentInteractable = interactable;
+                    currentInteractable.showOutline();
+                }
+            }
+        }
+    }
     public void OnInteract(InputAction.CallbackContext context)
     {
 

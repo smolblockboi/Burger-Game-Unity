@@ -10,8 +10,9 @@ public class InteractableIngredientObject : InteractableObject
     public float currentCookTime = 0f;
     public float targetCookTime = 3f;
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         ChangeData(itemData);
     }
 
