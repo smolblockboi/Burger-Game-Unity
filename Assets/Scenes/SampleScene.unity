@@ -4697,13 +4697,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2669346231157267783, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3389917564419697952, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
       propertyPath: m_Name
       value: Burger Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 3389917564419697952, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5012713802631264794, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461884325286136136, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
+      propertyPath: m_Height
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191827812438035607, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704619686507969234, guid: 37168e0549b5fe341b639f5dd37f1c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

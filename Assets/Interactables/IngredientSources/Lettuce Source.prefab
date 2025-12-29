@@ -114,8 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ca82078ac690e41b982be720d49dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientSource
+  itemPrefab: {fileID: 0}
+  ingredientDatas:
+  - {fileID: 11400000, guid: 90d416a3dad280043b2abac09d9ca573, type: 2}
   spawnTransform: {fileID: 3405418767375338062}
-  ingredient: {fileID: 3425437919262914432, guid: df7903d78506ac549910f08bc8af9abc, type: 3}
 --- !u!65 &4548340469275964003
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InteractableIngredientObject : InteractableObject
@@ -9,12 +10,12 @@ public class InteractableIngredientObject : InteractableObject
     public float currentCookTime = 0f;
     public float targetCookTime = 3f;
 
-    private void Start()
+    void Start()
     {
         ChangeData(itemData);
     }
 
-    private void Update()
+    void Update()
     {
         if (currentCookTime >= targetCookTime)
         {

@@ -127,6 +127,15 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cycle Action"",
+                    ""type"": ""Value"",
+                    ""id"": ""dd8670d4-3d27-461b-9e1f-3d8eacebf2c6"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -261,6 +270,39 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""301cafe7-0fe3-447e-b538-692001361b59"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cycle Action"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1274d03e-887f-4979-9a25-bd6a4f855218"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cycle Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ef067bba-4c27-40cb-b84c-b5cc0365dbaa"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cycle Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -273,6 +315,7 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
         m_DefaultActions_Look = m_DefaultActions.FindAction("Look", throwIfNotFound: true);
         m_DefaultActions_Interact = m_DefaultActions.FindAction("Interact", throwIfNotFound: true);
         m_DefaultActions_Action = m_DefaultActions.FindAction("Action", throwIfNotFound: true);
+        m_DefaultActions_CycleAction = m_DefaultActions.FindAction("Cycle Action", throwIfNotFound: true);
     }
 
     ~@Player_Actions()
@@ -357,6 +400,7 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_DefaultActions_Look;
     private readonly InputAction m_DefaultActions_Interact;
     private readonly InputAction m_DefaultActions_Action;
+    private readonly InputAction m_DefaultActions_CycleAction;
     /// <summary>
     /// Provides access to input actions defined in input action map "DefaultActions".
     /// </summary>
@@ -384,6 +428,10 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "DefaultActions/Action".
         /// </summary>
         public InputAction @Action => m_Wrapper.m_DefaultActions_Action;
+        /// <summary>
+        /// Provides access to the underlying input action "DefaultActions/CycleAction".
+        /// </summary>
+        public InputAction @CycleAction => m_Wrapper.m_DefaultActions_CycleAction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -422,6 +470,9 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
             @Action.started += instance.OnAction;
             @Action.performed += instance.OnAction;
             @Action.canceled += instance.OnAction;
+            @CycleAction.started += instance.OnCycleAction;
+            @CycleAction.performed += instance.OnCycleAction;
+            @CycleAction.canceled += instance.OnCycleAction;
         }
 
         /// <summary>
@@ -445,6 +496,9 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
             @Action.started -= instance.OnAction;
             @Action.performed -= instance.OnAction;
             @Action.canceled -= instance.OnAction;
+            @CycleAction.started -= instance.OnCycleAction;
+            @CycleAction.performed -= instance.OnCycleAction;
+            @CycleAction.canceled -= instance.OnCycleAction;
         }
 
         /// <summary>
@@ -513,5 +567,12 @@ public partial class @Player_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cycle Action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCycleAction(InputAction.CallbackContext context);
     }
 }

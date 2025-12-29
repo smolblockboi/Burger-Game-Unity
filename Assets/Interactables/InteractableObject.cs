@@ -4,6 +4,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
 {
     private SpringJoint grabJoint;
 
+    private bool _isGrabbed; // internal
+    public bool IsGrabbed { get { return _isGrabbed; } } // Read-only
+
     public virtual void Grabbed(Transform holdPoint)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -19,6 +22,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.isKinematic = false;
             rb.useGravity = false;
+
+            _isGrabbed = true;
         }
 
         Debug.Log("Grabbed " + name);
@@ -35,6 +40,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
             rb.linearDamping = 0f;
             rb.constraints = RigidbodyConstraints.None;
             rb.useGravity = true;
+
+            _isGrabbed = false;
         }
 
         Debug.Log("Dropped " + name);
@@ -42,12 +49,12 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Punched()
 	{
-	
+	    Debug.Log("Punched " + gameObject.name);
 	}
 
 	public virtual void Chopped()
 	{
-	
+	    Debug.Log("Chopped " + gameObject.name);
 	}
 
 }

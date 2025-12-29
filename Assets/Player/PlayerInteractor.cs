@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,18 +10,7 @@ public class PlayerInteractor : MonoBehaviour
     public float maxDistance = 100f;
 
     private Collider heldItem;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private InteractorAction currentAction = InteractorAction.Punch;
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -68,11 +58,28 @@ public class PlayerInteractor : MonoBehaviour
                 IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
-                    interactable.Chopped();
+                    switch (currentAction)
+                    {
+                        case InteractorAction.Punch:
+                            interactable.Punched();
+                            break;
+                        case InteractorAction.Chop:
+                            interactable.Chopped();
+                            break;
+                    }
                 }
             }
         }
     }
 
+    public void OnActionCycle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currentAction = (InteractorAction)(context.ReadValue<float>());
+
+            Debug.Log("Action selected: " + currentAction);
+        }
+    }
 
 }

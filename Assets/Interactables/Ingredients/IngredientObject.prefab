@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableIngredientObject
   itemPrefab: {fileID: -3235496634641203564}
   itemData: {fileID: 0}
+  currentCookTime: 0
+  targetCookTime: 3
 --- !u!33 &2536211598901452417
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,6 +86,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: fffed12027b493a42ad7dc0d3640671f, type: 2}
+  - {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
