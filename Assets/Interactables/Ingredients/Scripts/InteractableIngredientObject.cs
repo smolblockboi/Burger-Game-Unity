@@ -61,13 +61,15 @@ public class InteractableIngredientObject : InteractableObject
         {
             Debug.Log("Chopped " + name);
 
+            ItemData chopResult = itemData.chopsInto;
+
             for (int i = 0; i < 2; i++)
             {
                 InteractableIngredientObject itemInstance = Instantiate(itemPrefab, transform.position, Quaternion.identity);
-                itemInstance.itemData = itemData.chopsInto;
+                itemInstance.itemData = chopResult;
             }
             
-            Debug.Log("Chopped into " + itemData.chopsInto.itemName);
+            Debug.Log("Chopped into " + chopResult.itemName);
 
             Destroy(gameObject);
         }

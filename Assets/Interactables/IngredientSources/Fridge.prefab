@@ -166,6 +166,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1724080987372072942, guid: 8497a3f078948d546b0f211b8ca0521d, type: 3}
+  - {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59aa994b0c917a48a41477292309888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableFridgeDoor
+  outline: {fileID: 0}
   hinge: {fileID: 0}
 --- !u!1 &6898303409135120169
 GameObject:
@@ -592,6 +594,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1724080987372072942, guid: 8497a3f078948d546b0f211b8ca0521d, type: 3}
+  - {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -648,6 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59aa994b0c917a48a41477292309888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableFridgeDoor
+  outline: {fileID: 0}
   hinge: {fileID: 0}
 --- !u!1001 &2250655918610105669
 PrefabInstance:

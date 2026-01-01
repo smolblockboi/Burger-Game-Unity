@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonCamera
   playerBody: {fileID: 8577525948501697620}
   playerHead: {fileID: 5644587633551645912}
-  mouseSensitivity: 0.75
+  mouseSensitivity: 0.3
 --- !u!1 &6744501009593654001
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   holdPoint: {fileID: 8757305978918428150}
   cam: {fileID: 4702146232959019961}
-  maxDistance: 100
+  maxDistance: 10
 --- !u!114 &1906387165288270028
 MonoBehaviour:
   m_ObjectHideFlags: 0

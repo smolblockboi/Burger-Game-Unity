@@ -23,8 +23,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 HideOutline();
             }
         }
+
     }
-    public void showOutline()
+    public void ShowOutline()
     {
         outline.SetFloat("_Outline_Thickness", outlineSize);
     }
@@ -36,15 +37,18 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Grabbed(Transform holdPoint)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-
-        if (rb != null)
+        if (!grabJoint)
         {
             grabJoint = gameObject.AddComponent<SpringJoint>();
             grabJoint.connectedBody = holdPoint.gameObject.GetComponent<Rigidbody>();
             grabJoint.spring = 20f;
             //grabJoint.damper = 1.5f;
+        }
 
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
             rb.linearDamping = 5f;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.isKinematic = false;
@@ -58,12 +62,15 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Dropped()
     {
+        if (grabJoint)
+        {
+            Destroy(grabJoint);
+        }
+
         Rigidbody rb = GetComponent<Rigidbody>();
 
         if (rb != null)
         {
-            Destroy(grabJoint);
-
             rb.linearDamping = 0f;
             rb.constraints = RigidbodyConstraints.None;
             rb.useGravity = true;

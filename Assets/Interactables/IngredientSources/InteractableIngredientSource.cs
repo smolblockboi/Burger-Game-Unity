@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class InteractableIngredientSource : MonoBehaviour, IInteractable
+public class InteractableIngredientSource : InteractableObject
 {
 	public InteractableIngredientObject itemPrefab;
 	public ItemData[] ingredientDatas;
 
 	public Transform spawnTransform;
 
-	public void Grabbed(Transform holdPoint)
+	public override void Grabbed(Transform holdPoint)
 	{
 		for(int i = 0; i < ingredientDatas.Length; i++)
 		{
@@ -15,20 +15,5 @@ public class InteractableIngredientSource : MonoBehaviour, IInteractable
 			itemInstance.itemData = ingredientDatas[i];
 		}
     }
-
-	public void Dropped()
-	{
-	
-	}
-
-	public void Punched()
-	{
-	
-	}
-
-	public void Chopped()
-	{
-	
-	}
 
 }

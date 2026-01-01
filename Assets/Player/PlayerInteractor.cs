@@ -25,10 +25,33 @@ public class PlayerInteractor : MonoBehaviour
             {
                 InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
 
-                if (interactable != null)
+                if (interactable != null) // raycast hit interactable
                 {
+                    if (currentInteractable && interactable != currentInteractable)
+                    {
+                        currentInteractable.HideOutline();
+                    }
+                    
                     currentInteractable = interactable;
-                    currentInteractable.showOutline();
+                    currentInteractable.ShowOutline();
+
+                    //Debug.Log("Looking at " + currentInteractable.name);
+                }
+                else
+                {
+                    if (currentInteractable)
+                    {
+                        currentInteractable.HideOutline();
+                        currentInteractable = null;
+                    }
+                }
+            }
+            else
+            {
+                if (currentInteractable)
+                {
+                    currentInteractable.HideOutline();
+                    currentInteractable = null;
                 }
             }
         }

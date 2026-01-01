@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class InteractableFridgeDoor : MonoBehaviour, IInteractable
+public class InteractableFridgeDoor : InteractableObject
 {
     private bool isOpened = false;
     private Vector3 openVector = new Vector3(0f, -75f, 0f);
     public Transform hinge;
 
-    public void Grabbed(Transform holdPoint)
+    public override void Grabbed(Transform holdPoint)
     {
         if (isOpened)
         {
@@ -20,18 +20,4 @@ public class InteractableFridgeDoor : MonoBehaviour, IInteractable
         }
     }
 
-    public void Dropped()
-    {
-
-    }
-
-    public void Punched()
-    {
-
-    }
-
-    public void Chopped()
-    {
-
-    }
 }

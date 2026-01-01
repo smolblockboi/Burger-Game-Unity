@@ -817,6 +817,14 @@ PrefabInstance:
       propertyPath: 'ingredientDatas.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 90d416a3dad280043b2abac09d9ca573, type: 2}
+    - target: {fileID: 932351446893563530, guid: 21116a040a07dfe4893d96d2a70eea37, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932351446893563530, guid: 21116a040a07dfe4893d96d2a70eea37, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
     - target: {fileID: 1725051019878346591, guid: 21116a040a07dfe4893d96d2a70eea37, type: 3}
       propertyPath: m_Name
       value: Lettuce Source
@@ -4903,6 +4911,14 @@ PrefabInstance:
       propertyPath: 'ingredientDatas.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 0c484cd41475910499e1b6fb92df2b71, type: 2}
+    - target: {fileID: 5204823580546056748, guid: af8d7fff503e2c346a1781e0bee66464, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204823580546056748, guid: af8d7fff503e2c346a1781e0bee66464, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
     - target: {fileID: 5997601769707398137, guid: af8d7fff503e2c346a1781e0bee66464, type: 3}
       propertyPath: m_Name
       value: Onion Source
@@ -5004,6 +5020,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4616682208847798692, guid: de15bfdb6f019be49a6a474c0b5c2098, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616682208847798692, guid: de15bfdb6f019be49a6a474c0b5c2098, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
     - target: {fileID: 5790200711700732619, guid: de15bfdb6f019be49a6a474c0b5c2098, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.394403
@@ -5061,6 +5085,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3318259122972667257, guid: add58aee437167841a964fdcafed7744, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318259122972667257, guid: add58aee437167841a964fdcafed7744, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f325e8d28ce75c942baa5818ca4752d5, type: 2}
     - target: {fileID: 3822482304766545068, guid: add58aee437167841a964fdcafed7744, type: 3}
       propertyPath: m_Name
       value: Buns Source
@@ -5161,6 +5193,10 @@ PrefabInstance:
     - target: {fileID: 7769255786101546765, guid: e3da192ddcaac4943817017d55e18903, type: 3}
       propertyPath: mouseSensitivity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563903815149393245, guid: e3da192ddcaac4943817017d55e18903, type: 3}
+      propertyPath: maxDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8563903815149393245, guid: e3da192ddcaac4943817017d55e18903, type: 3}
       propertyPath: characterController
