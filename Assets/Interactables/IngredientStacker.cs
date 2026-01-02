@@ -1,3 +1,5 @@
+using NUnit.Framework.Interfaces;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IngredientStacker : MonoBehaviour
@@ -7,6 +9,13 @@ public class IngredientStacker : MonoBehaviour
 
     public Transform ingredientStackRoot;
     private int baseTriggerSize = 3;
+
+    [HideInInspector]public BurgerData burgerData;
+
+    private void Start()
+    {
+        burgerData = ScriptableObject.CreateInstance<BurgerData>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,23 +44,23 @@ public class IngredientStacker : MonoBehaviour
                     float hieghtOffset = lastIngredient.localPosition.y + lastBounds.center.y + lastBounds.extents.y;
 
                     ingredient.transform.SetLocalPositionAndRotation(new Vector3(0, hieghtOffset, 0), Quaternion.identity);
-                    AddIngredient();
+                    AddIngredient(ingredient.itemData);
                 }
                 else
                 {
                     ingredient.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-                    AddIngredient();
+                    AddIngredient(ingredient.itemData);
                 }
             }
             else
             {
                 ingredient.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-                AddIngredient();
+                AddIngredient(ingredient.itemData);
             }
         }
     }
 
-    private void AddIngredient()
+    private void AddIngredient(ItemData itemData)
     {
         int stackCount = ingredientStackRoot.childCount;
 
@@ -60,6 +69,8 @@ public class IngredientStacker : MonoBehaviour
             triggerCollider.height += triggerGrowth;
             triggerCollider.center += new Vector3(0, triggerGrowth, 0f);
         }
+
+        burgerData.AddIngredient(itemData);
     }
 
     public void RemoveIngredient()
@@ -79,6 +90,7 @@ public class IngredientStacker : MonoBehaviour
             triggerCollider.center -= new Vector3(0, triggerGrowth, 0f);
         }
 
+        burgerData.RemoveMostRecentIngredient();
         Destroy(lastIngredient.gameObject);
 
     }
