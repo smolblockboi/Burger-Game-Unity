@@ -16,5 +16,8 @@ MonoBehaviour:
   itemState: 2
   itemType: 4
   itemMesh: {fileID: 3172193150111333715, guid: cea85654654a1094fb12d4b54f574ec0, type: 3}
+  itemIcon: {fileID: 2800000, guid: 1f6f4bb723ed3c745a1c64cd468fb8b8, type: 3}
+  cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 0}
   punchesInto: {fileID: 0}

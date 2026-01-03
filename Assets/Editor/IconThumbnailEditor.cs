@@ -5,6 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using System.IO;
 
 public class IconThumbnailEditor : EditorWindow
 {
@@ -33,7 +34,8 @@ public class IconThumbnailEditor : EditorWindow
     private Camera m_sceneCamera;
     private InteractableIngredientObject m_instance;
     private Vector3Field m_cameraPositionField;
-    private Vector3Field m_cameraRotationField;
+    private Vector3Field m_objectRotation;
+    private Button m_saveBtn;
 
     public void CreateGUI()
     {
@@ -62,22 +64,68 @@ public class IconThumbnailEditor : EditorWindow
         rootVisualElement.Q<VisualElement>("Content").dataSource = this;
 
         m_cameraPositionField = rootVisualElement.Q<Vector3Field>("CameraPosition");
-        m_cameraRotationField = rootVisualElement.Q<Vector3Field>("CameraRotation");
+        m_objectRotation = rootVisualElement.Q<Vector3Field>("ObjectRotation");
 
+        m_saveBtn = rootVisualElement.Q<Button>("SaveBtn");
+        m_saveBtn.clicked += Export;
+
+        m_cameraPositionField.RegisterValueChangedCallback(OnCameraPositionChange);
+        m_objectRotation.RegisterValueChangedCallback(OnRotationChange);
 
         m_list.SetSelection(0);
 
     }
 
-    private void OnCameraRotationChange(ChangeEvent<Vector3> evt)
-    {
-
-    }
     private void OnCameraPositionChange(ChangeEvent<Vector3> evt)
     {
-
+        m_cameraObject.transform.position = evt.newValue;
+        UpdateCamera();
     }
+    private void OnRotationChange(ChangeEvent<Vector3> evt)
+    {
+        m_instance.transform.eulerAngles = evt.newValue;
+        UpdateCamera();
+    }
+    private void Export()
+    {
+        m_sceneCamera.depthTextureMode = DepthTextureMode.Depth;
+        m_sceneCamera.backgroundColor = new Color(0, 0, 0, 0);
 
+        UpdateCamera();
+
+        SaveTextureAsPNG(m_previewTexture, m_selectedAsset.name);
+
+        m_sceneCamera.backgroundColor = Color.black;
+
+        UpdateCamera();
+    }
+    private void SaveTextureAsPNG(Texture2D texture, string fileName)
+    {
+        if (texture == null)
+        {
+            Debug.LogError("No texture provided to save.");
+            return;
+        }
+
+        string path = EditorUtility.SaveFilePanel("Save Texture As PNG", "", $"{fileName}.png", "png");
+
+        if (string.IsNullOrEmpty(path))
+        {
+            Debug.Log("Save operation cancelled.");
+            return;
+        }
+
+        byte[] pngData = texture.EncodeToPNG();
+        if (pngData != null)
+        {
+            File.WriteAllBytes(path, pngData);
+            Debug.Log("Texture saved to: " + path);
+        }
+        else
+        {
+            Debug.Log("Failed to encode texture to PNG.");
+        }
+    }
     private void OnSelectItem(object item)
     {
         m_selectedAsset = m_items[m_list.selectedIndex];
@@ -89,7 +137,7 @@ public class IconThumbnailEditor : EditorWindow
         if(m_cameraObject == null)
         {
             m_cameraObject = new GameObject("Camera");
-            m_cameraObject.transform.position = new Vector3(0, 0, -2);
+            m_cameraObject.transform.position = new Vector3(0, 0, -1);
             m_cameraObject.transform.eulerAngles = new Vector3(0, 0, 0);
 
             m_sceneCamera = m_cameraObject.AddComponent<Camera>();
@@ -102,6 +150,8 @@ public class IconThumbnailEditor : EditorWindow
             SceneManager.MoveGameObjectToScene(m_cameraObject, m_previewScene);
 
             m_sceneCamera.scene = m_previewScene;
+
+            m_cameraPositionField.value = m_cameraObject.transform.position;
         }
 
         if (m_instance != null)
@@ -110,14 +160,17 @@ public class IconThumbnailEditor : EditorWindow
             DestroyImmediate(m_instance.gameObject);
         }
 
-        GameObject newGameObject = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load("IngredientObject"), m_previewScene);
+        GameObject newGameObject = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load("IngredientObjectPreview"), m_previewScene);
 
         m_instance = newGameObject.GetComponent<InteractableIngredientObject>();
         m_instance.itemData = m_selectedAsset;
         m_instance.ChangeData(m_selectedAsset);
 
-        m_instance.gameObject.transform.rotation = Quaternion.identity;
-        m_instance.gameObject.transform.position = Vector3.zero;
+        MeshFilter meshFilter = newGameObject.GetComponent<MeshFilter>();
+        Bounds bounds = meshFilter.sharedMesh.bounds;
+
+        m_instance.gameObject.transform.eulerAngles = m_objectRotation.value;
+        m_instance.gameObject.transform.position = new Vector3(0, -bounds.center.y, 0);
 
         UpdateCamera();
     }

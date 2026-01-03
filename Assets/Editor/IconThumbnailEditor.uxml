@@ -1,8 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Editor/IconThumbnailEditor.uss?fileID=7433441132597879392&amp;guid=0967b347d0222d141a2796e1be933a46&amp;type=3#IconThumbnailEditor"/>
     <ui:VisualElement name="Container" data-source-type="IconThumbnailEditor, Assembly-CSharp-Editor" style="flex-grow: 1; flex-direction: row; width: auto; height: 512px; aspect-ratio: 1.5; background-color: rgb(56, 56, 56);">
-        <ui:ListView name="List" show-foldout-header="true" header-title="Elements" style="width: 270px; background-color: rgb(62, 62, 62); color: rgb(255, 255, 255); -unity-font-style: normal; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+        <ui:ListView name="List" show-foldout-header="true" header-title="Item Data Assets" allow-add="true" allow-remove="true" show-add-remove-footer="false" show-bound-collection-size="false" style="width: 270px; background-color: rgb(62, 62, 62); color: rgb(255, 255, 255); -unity-font-style: normal; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
         <ui:VisualElement name="Content" style="flex-grow: 1; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+            <ui:Button text="Save" name="SaveBtn" style="align-self: flex-end;"/>
             <ui:Label text="Label" name="Header" style="color: rgb(255, 255, 255); -unity-font-style: bold;">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="m_selectedAsset.itemName" binding-mode="ToTarget"/>
@@ -13,7 +14,8 @@
                     <ui:DataBinding property="style.backgroundImage" data-source-path="m_previewTexture" binding-mode="ToTarget"/>
                 </Bindings>
             </ui:VisualElement>
-            <ui:Vector3Field label="Vec3 Field"/>
+            <ui:Vector3Field label="Camera Position" name="CameraPosition"/>
+            <ui:Vector3Field label="Object Rotation" name="ObjectRotation"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

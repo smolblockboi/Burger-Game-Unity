@@ -41,9 +41,9 @@ public class IngredientStacker : MonoBehaviour
                 if (lastMesh != null)
                 {
                     Bounds lastBounds = lastMesh.mesh.bounds;
-                    float hieghtOffset = lastIngredient.localPosition.y + lastBounds.center.y + lastBounds.extents.y;
+                    float heightOffset = lastIngredient.localPosition.y + lastBounds.center.y + lastBounds.extents.y;
 
-                    ingredient.transform.SetLocalPositionAndRotation(new Vector3(0, hieghtOffset, 0), Quaternion.identity);
+                    ingredient.transform.SetLocalPositionAndRotation(new Vector3(0, heightOffset, 0), Quaternion.identity);
                     AddIngredient(ingredient.itemData);
                 }
                 else

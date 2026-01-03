@@ -9,6 +9,7 @@ public class ItemData : ScriptableObject
     public ItemType itemType;
 
     public Mesh itemMesh;
+    public Texture2D itemIcon;
 
     public ItemData cooksInto;
     public ItemData burnsInto;
