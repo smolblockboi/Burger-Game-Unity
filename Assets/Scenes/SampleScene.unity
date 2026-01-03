@@ -5339,11 +5339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6857760356420853597, guid: 4bc7fa0aff2320d4c8374dadd17390e0, type: 3}
       propertyPath: topShelfItemLimit
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6857760356420853597, guid: 4bc7fa0aff2320d4c8374dadd17390e0, type: 3}
       propertyPath: bottomShelfItemLimit
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7821140270567325399, guid: 4bc7fa0aff2320d4c8374dadd17390e0, type: 3}
       propertyPath: m_LocalPosition.x
