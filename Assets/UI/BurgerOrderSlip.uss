@@ -1,0 +1,13 @@
+:root {
+}
+
+.unity-image.ingredient-image {
+    align-items: center;
+    align-self: center;
+    aspect-ratio: 1;
+    margin-top: -16px;
+    margin-bottom: -16px;
+}
+
+.main-panel {
+}
