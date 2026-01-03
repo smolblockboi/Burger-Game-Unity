@@ -14,9 +14,4 @@ public class OrderBell : InteractableObject
 
         orderGenerated.Invoke(newOrder);
     }
-
-    public void OnOrderGenerated(BurgerData burgerData)
-    {
-        Debug.Log("New order generated: " + string.Join(", ", burgerData.ingredients));
-    }
 }

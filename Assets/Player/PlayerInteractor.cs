@@ -16,10 +16,10 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        Ray ray = new(cam.transform.position, cam.transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, maxDistance))
+        if (Physics.Raycast(ray, out hit, maxDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
         {
             if (hit.collider.GetComponent<InteractableObject>())
             {
@@ -63,10 +63,10 @@ public class PlayerInteractor : MonoBehaviour
         {
             if (context.performed)
             {
-                Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+                Ray ray = new(cam.transform.position, cam.transform.forward);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, maxDistance))
+                if (Physics.Raycast(ray, out hit, maxDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
                 {
                     IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                     if (interactable != null)
@@ -97,7 +97,7 @@ public class PlayerInteractor : MonoBehaviour
             Ray ray = new Ray(cam.transform.position, cam.transform.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxDistance))
+            if (Physics.Raycast(ray, out hit, maxDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                 if (interactable != null)

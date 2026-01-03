@@ -7,14 +7,14 @@ public class BurgerData : ScriptableObject
 {
     public List<ItemData> ingredients = new();
 
-    public void CheckIngredients(BurgerData burgerData)
+    public bool CheckIngredients(BurgerData burgerData)
     {
         Debug.Log("Checked: " + string.Join(", ", burgerData.ingredients));
         Debug.Log("Burger data: " + string.Join(", ", ingredients));
 
         bool result = burgerData.ingredients.SequenceEqual(ingredients);
 
-        Debug.Log("Burgers matched: " + result);
+        return result;
     }
 
     public void AddIngredient(ItemData ingredient)
@@ -24,7 +24,7 @@ public class BurgerData : ScriptableObject
 
     public void RemoveMostRecentIngredient()
     {
-        if (ingredients.Count - 1 > 0)
+        if (ingredients.Count > 0)
         {
             ingredients.RemoveAt(ingredients.Count - 1);
         }

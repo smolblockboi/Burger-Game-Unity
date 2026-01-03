@@ -6,7 +6,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     private Renderer objectRenderer;
     [HideInInspector] public Material outline;
-    private float outlineSize = 0.05f;
+    public float outlineSize { get; private set; } = 0.05f;
 
     private bool _isGrabbed; // internal
     public bool IsGrabbed { get { return _isGrabbed; } } // Read-only
@@ -25,12 +25,12 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
 
     }
-    public void ShowOutline()
+    public virtual void ShowOutline()
     {
         outline.SetFloat("_Outline_Thickness", outlineSize);
     }
 
-    public void HideOutline()
+    public virtual void HideOutline()
     {
         outline.SetFloat("_Outline_Thickness", 0f);
     }

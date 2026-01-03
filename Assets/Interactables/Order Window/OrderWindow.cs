@@ -5,6 +5,8 @@ using System;
 
 public class OrderWindow : MonoBehaviour
 {
+    public UnityEvent<bool> orderSubmitted;
+
     public BurgerData burgerOrder;
 
     private void OnTriggerEnter(Collider other)
@@ -17,11 +19,21 @@ public class OrderWindow : MonoBehaviour
 
             if (ingredientStack != null)
             {
-                burgerOrder.CheckIngredients(ingredientStack.burgerData);
+                if (burgerOrder)
+                {
+                    orderSubmitted.Invoke(burgerOrder.CheckIngredients(ingredientStack.burgerData));
+                }
             }
 
             burgerPlate.Dropped();
             Destroy(burgerPlate.gameObject);
         }
+    }
+
+    public void OnOrderGenerated(BurgerData burgerData)
+    {
+        burgerOrder = burgerData;
+
+        Debug.Log("New order generated: " + string.Join(", ", burgerOrder.ingredients));
     }
 }
