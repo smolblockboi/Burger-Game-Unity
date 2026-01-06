@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Buns_Bottom
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: buns_bottom
   itemName: Bottom Bun
   itemState: 0
   itemType: 2

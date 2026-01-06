@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
-  m_Name: MeatPatty_Cooked
+  m_Name: Patty_Meat_Burnt
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Meat Patty
-  itemState: 1
-  itemType: 1
-  itemMesh: {fileID: 2720608395318045412, guid: 5743b99350e7f6b449c2073084108dd5, type: 3}
-  itemIcon: {fileID: 2800000, guid: b5b6fda5fd59cd04b99d33ae791854bd, type: 3}
-  cooksInto: {fileID: 11400000, guid: 64e10dee759e58249ba9e392c85abf52, type: 2}
-  burnsInto: {fileID: 11400000, guid: 64e10dee759e58249ba9e392c85abf52, type: 2}
+  internalID: patty_meat_burnt
+  itemName: Burnt Meat Patty
+  itemState: 4
+  itemType: 3
+  itemMesh: {fileID: -4774374933590487384, guid: 5879abbe85f2d964fa910c2335707006, type: 3}
+  itemIcon: {fileID: 0}
+  cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 0}
   punchesInto: {fileID: 0}

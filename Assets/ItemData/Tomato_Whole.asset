@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Tomato_Whole
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: tomato_whole
   itemName: Tomato
   itemState: 0
   itemType: 0
   itemMesh: {fileID: -5321038836818693795, guid: 105bd1989d949234097090f67daa44c1, type: 3}
+  itemIcon: {fileID: 0}
   cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 11400000, guid: d4bf1cc2c533dc04c8cd76ee6d439e47, type: 2}
   punchesInto: {fileID: 0}

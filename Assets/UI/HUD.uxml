@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="BurgerOrderContainer" src="project://database/Assets/UI/BurgerOrderContainer/BurgerOrderContainer.uxml?fileID=9197481963319205126&amp;guid=55d801cb3a0f00b43a094b352800bf47&amp;type=3#BurgerOrderContainer"/>
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <ui:Instance template="BurgerOrderContainer" name="OrderSlipsContainer"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Cheese_Wedge
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: cheese_wedge
   itemName: Cheese Wedge
   itemState: 0
   itemType: 4
   itemMesh: {fileID: 1106177787490279471, guid: d15f46cfe5ad87b46b51bf80eb6b8060, type: 3}
+  itemIcon: {fileID: 0}
   cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 11400000, guid: 2be4fb335e48e0b4997d9413854c5a4b, type: 2}
   punchesInto: {fileID: 0}

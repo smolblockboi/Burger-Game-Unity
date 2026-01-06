@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Lettuce_Whole
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: lettuce_whole
   itemName: Lettuce Head
   itemState: 0
   itemType: 0
   itemMesh: {fileID: 599530405527473323, guid: 96035887fb6ab1947b23c2aa71cb820b, type: 3}
+  itemIcon: {fileID: 0}
+  cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 11400000, guid: 6ab6a41680d8cc74983a562d0a3f863c, type: 2}
   punchesInto: {fileID: 0}

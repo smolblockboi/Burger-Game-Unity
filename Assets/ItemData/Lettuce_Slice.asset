@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Lettuce_Slice
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: lettuce_slice
   itemName: Lettuce Slice
   itemState: 2
   itemType: 0

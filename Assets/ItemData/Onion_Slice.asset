@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Onion_Slice
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: onion_slice
   itemName: Onion Rings
   itemState: 2
   itemType: 0

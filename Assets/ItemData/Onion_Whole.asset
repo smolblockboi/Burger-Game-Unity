@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35941ff909c865f4bbb7978f9af2dcc3, type: 3}
   m_Name: Onion_Whole
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  internalID: onion_whole
   itemName: Onion
   itemState: 0
   itemType: 0
   itemMesh: {fileID: 3868198897737585946, guid: 376baeec3199df44d92c79e70437df5f, type: 3}
+  itemIcon: {fileID: 0}
+  cooksInto: {fileID: 0}
+  burnsInto: {fileID: 0}
   chopsInto: {fileID: 11400000, guid: e6cab33c999ae40488915544c85a9aba, type: 2}
   punchesInto: {fileID: 0}

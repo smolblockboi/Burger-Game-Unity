@@ -4,13 +4,19 @@ using System.Collections.Generic;
 
 public class OrderBell : InteractableObject
 {
-    public UnityEvent<BurgerData> orderGenerated;
+    public UnityEvent<OrderData> orderGenerated;
 
     public List<BurgerData> burgerOptions;
 
+    private int orderCount = 0;
+
     public override void Grabbed(Transform holdPoint)
     {
-        BurgerData newOrder = burgerOptions[Random.Range(0, burgerOptions.Count)];
+        orderCount++;
+
+        OrderData newOrder = ScriptableObject.CreateInstance<OrderData>();
+        newOrder.burgerData = burgerOptions[Random.Range(0, burgerOptions.Count)];
+        newOrder.orderNumber = orderCount;
 
         orderGenerated.Invoke(newOrder);
     }

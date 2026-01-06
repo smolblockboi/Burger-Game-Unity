@@ -7,7 +7,7 @@ public class OrderWindow : MonoBehaviour
 {
     public UnityEvent<bool> orderSubmitted;
 
-    public BurgerData burgerOrder;
+    public BurgerData burgerData;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,9 +19,9 @@ public class OrderWindow : MonoBehaviour
 
             if (ingredientStack != null)
             {
-                if (burgerOrder)
+                if (burgerData)
                 {
-                    orderSubmitted.Invoke(burgerOrder.CheckIngredients(ingredientStack.burgerData));
+                    orderSubmitted.Invoke(burgerData.CheckIngredients(ingredientStack.burgerData));
                 }
             }
 
@@ -30,10 +30,10 @@ public class OrderWindow : MonoBehaviour
         }
     }
 
-    public void OnOrderGenerated(BurgerData burgerData)
+    public void OnOrderGenerated(OrderData orderData)
     {
-        burgerOrder = burgerData;
+        burgerData = orderData.burgerData;
 
-        Debug.Log("New order generated: " + string.Join(", ", burgerOrder.ingredients));
+        Debug.Log("New order generated: " + string.Join(", ", burgerData.ingredients));
     }
 }
