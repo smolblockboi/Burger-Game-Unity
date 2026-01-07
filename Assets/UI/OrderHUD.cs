@@ -12,6 +12,7 @@ public class OrderHUD : MonoBehaviour
 
     private VisualElement uiRoot;
     private TemplateContainer orderSlipsContainer;
+    private VisualElement orderPanel;
 
     private void OnEnable()
     {
@@ -24,6 +25,7 @@ public class OrderHUD : MonoBehaviour
         }
 
         orderSlipsContainer = uiRoot.Q<TemplateContainer>("OrderSlipsContainer");
+        orderPanel = orderSlipsContainer.Q<VisualElement>("OrderPanel");
     }
 
     public void OnOrderGenerated(OrderData orderData)
@@ -33,21 +35,16 @@ public class OrderHUD : MonoBehaviour
         Debug.Log("HUD received burger order");
     }
 
-    public void OnOrderSubmitted(bool orderMatches)
+    public void OnOrderCompleted(int index)
     {
-        Debug.Log("HUD received burger submission");
+        orderPanel.RemoveAt(index);
     }
 
     private void InstantiateOrderSlip(OrderData orderData)
     {
-        VisualElement orderPanel = orderSlipsContainer.Q<VisualElement>("OrderPanel");
-
         VisualElement newSlip = orderSlipTemplate.Instantiate();
 
         VisualElement ingredientsGroup = newSlip.Q<VisualElement>("Ingredients");
-
-        // TODO
-        // Make slip ingredient icons visible/hidden based on orderData
 
         List<string> orderStrings = new();
 
