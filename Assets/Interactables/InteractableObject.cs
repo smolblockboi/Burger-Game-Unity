@@ -11,6 +11,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private bool _isGrabbed; // internal
     public bool IsGrabbed { get { return _isGrabbed; } } // Read-only
 
+    private RigidbodyConstraints grabbedConstraints = RigidbodyConstraints.None;
+
     public virtual void Start()
     {
         objectRenderer = GetComponent<Renderer>();
@@ -50,6 +52,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         if (rb != null)
         {
             rb.linearDamping = 5f;
+            grabbedConstraints = rb.constraints;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.isKinematic = false;
             rb.useGravity = false;
@@ -72,7 +75,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         if (rb != null)
         {
             rb.linearDamping = 0f;
-            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = grabbedConstraints;
             rb.useGravity = true;
 
             _isGrabbed = false;

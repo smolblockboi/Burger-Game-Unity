@@ -2774,6 +2774,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ea0bc83e63f2ab54d90cede2fe92ad72, type: 3}
   m_PrefabInstance: {fileID: 1106945651}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1115736061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7612888059746393446, guid: 62fb4d9c11575354685aafc958ee0d47, type: 3}
+  m_PrefabInstance: {fileID: 2052378332536770671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123697209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,6 +3213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f272b996ac17664cbdd2311e5dc1d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  playerData: {fileID: 11400000, guid: 1b9af133a2a47664d9d3450c74688b01, type: 2}
   burgerOrders: []
 --- !u!4 &1218665307
 Transform:
@@ -5232,6 +5238,14 @@ PrefabInstance:
       propertyPath: burgerOrder
       value: 
       objectReference: {fileID: 11400000, guid: cd57b27f7c5b94b4ca162e0e928fef89, type: 2}
+    - target: {fileID: 8456289605705578379, guid: 62fb4d9c11575354685aafc958ee0d47, type: 3}
+      propertyPath: moneyBundlePrefab
+      value: 
+      objectReference: {fileID: 4591515336901442580, guid: ca95e912084d4cd418c76b764a83a33a, type: 3}
+    - target: {fileID: 8456289605705578379, guid: 62fb4d9c11575354685aafc958ee0d47, type: 3}
+      propertyPath: moneySpawnTransform
+      value: 
+      objectReference: {fileID: 1115736061}
     - target: {fileID: 8456289605705578379, guid: 62fb4d9c11575354685aafc958ee0d47, type: 3}
       propertyPath: orderSubmitted.m_PersistentCalls.m_Calls.Array.size
       value: 1

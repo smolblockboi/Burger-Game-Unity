@@ -2,5 +2,12 @@
     <ui:Template name="BurgerOrderContainer" src="project://database/Assets/UI/BurgerOrderContainer/BurgerOrderContainer.uxml?fileID=9197481963319205126&amp;guid=55d801cb3a0f00b43a094b352800bf47&amp;type=3#BurgerOrderContainer"/>
     <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
         <ui:Instance template="BurgerOrderContainer" name="OrderSlipsContainer"/>
+        <ui:VisualElement style="flex-grow: 1; align-items: flex-end;">
+            <ui:Label text="$0" name="MoneyLabel" data-source="project://database/Assets/Player/PlayerData.asset?fileID=11400000&amp;guid=1b9af133a2a47664d9d3450c74688b01&amp;type=2#PlayerData" style="-unity-font-style: bold; font-size: 28px; -unity-text-align: upper-right; color: rgb(196, 196, 196);">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="money" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -208,7 +208,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!64 &5012713802631264794
 MeshCollider:
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84655335019bf654482a904633726373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableBurgerPlate
+  outline: {fileID: 0}
 --- !u!114 &6801676723427730235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +260,4 @@ MonoBehaviour:
   triggerCollider: {fileID: 5461884325286136136}
   triggerGrowth: 0.1
   ingredientStackRoot: {fileID: 4617781144564298350}
+  burgerData: {fileID: 0}
